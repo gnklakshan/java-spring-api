@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,8 +20,9 @@ public class userService {
     private final UserRepository userRepository;
     private final userTransformer userTransformer;
 
-    public User saveUser(UserRequest userRequest){
+    public User updateUser(String id, UserRequest userRequest){
         User user=userTransformer.toSaveUserEntity(userRequest);
+        user.setId(Long.valueOf(id));
         User savedUser = userRepository.save(user);
 
         return savedUser;
@@ -39,6 +41,11 @@ public class userService {
         }
         return ResponseEntity.ok(userTransformer.toUserResponse(user));
     }
+
+    public String newUser(UserRequest userRequest){
+        User savedUser = userRepository.save(userTransformer.toSaveUserEntity(userRequest));
+        return savedUser.getId().toString();
+            }
 
 
 }
