@@ -212,7 +212,11 @@
                     <outputChangeLogFile>${project.build.directory}/delta-release.sql</outputChangeLogFile>
 
                     <!-- Required for diff to work -->
-                    <referenceUrl>hibernate:spring:com.testjune.testjune.entity?dialect=org.hibernate.dialect.PostgreSQLDialect</referenceUrl>
+<!--                    <referenceUrl>-->
+<!--                        hibernate:ejb3:com.testjune.june.dao.entity?dialect=org.hibernate.dialect.PostgreSQLDialect&amp;hibernate.connection.url=jdbc:postgresql://localhost:5432/test&amp;hibernate.connection.username=postgres&amp;hibernate.connection.password=1968&amp;hibernate.connection.driver_class=org.postgresql.Driver-->
+<!--                    </referenceUrl>-->
+
+                    <!--                    <referenceUrl>hibernate:spring:com.testjune.june.dao.entity?dialect=org.hibernate.dialect.PostgreSQLDialect</referenceUrl>-->
                     <url>jdbc:postgresql://localhost:5432/test</url>
                     <username>postgres</username>
                     <password>1968</password>
